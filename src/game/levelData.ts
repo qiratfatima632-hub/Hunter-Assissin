@@ -1,0 +1,416 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import { LevelConfig } from './types.ts';
+
+export const LEVELS: LevelConfig[] = [
+  {
+    id: 1,
+    name: 'Neon Warehouse',
+    location: 'Sector 7 Industrial Dock',
+    theme: 'warehouse',
+    parTimeSec: 45,
+    playerSpawn: { x: -14, z: 0, angle: 0 },
+    exitPoint: { x: 14, z: 0, label: 'Getaway Van', icon: 'truck' },
+    fogColor: 0x0f172a,
+    groundColor: 0x1e293b,
+    lightKeyColor: 0xffeedd,
+    lightFillColor: 0x38bdf8,
+    ambientIntensity: 0.65,
+    guards: [
+      {
+        id: 'g1_1',
+        type: 'basic',
+        spawn: { x: -6, z: -4 },
+        facingAngle: Math.PI / 2,
+        patrol: [
+          { x: -6, z: -4, waitTime: 1.5 },
+          { x: -6, z: 4, waitTime: 1.5 },
+        ],
+      },
+      {
+        id: 'g1_2',
+        type: 'basic',
+        spawn: { x: 2, z: 5 },
+        facingAngle: 0,
+        patrol: [
+          { x: 2, z: 5, waitTime: 2.0 },
+          { x: 2, z: -5, waitTime: 2.0 },
+        ],
+      },
+      {
+        id: 'g1_3',
+        type: 'basic',
+        spawn: { x: 9, z: 0 },
+        facingAngle: Math.PI,
+        patrol: [
+          { x: 9, z: -3, waitTime: 1.5 },
+          { x: 9, z: 3, waitTime: 1.5 },
+        ],
+      },
+    ],
+    coins: [
+      { id: 'c1', x: -11, z: 3 },
+      { id: 'c2', x: -11, z: -3 },
+      { id: 'c3', x: -3, z: 0 },
+      { id: 'c4', x: -6, z: 6 },
+      { id: 'c5', x: -6, z: -6 },
+      { id: 'c6', x: 2, z: 0 },
+      { id: 'c7', x: 6, z: -4 },
+      { id: 'c8', x: 6, z: 4 },
+      { id: 'c9', x: 11, z: -3 },
+      { id: 'c10', x: 11, z: 3 },
+    ],
+    obstacles: [
+      // Outer Warehouse Walls
+      { id: 'w_north', type: 'wall', x: 0, z: -9, width: 32, depth: 1, height: 3.5, color: '#334155' },
+      { id: 'w_south', type: 'wall', x: 0, z: 9, width: 32, depth: 1, height: 3.5, color: '#334155' },
+      { id: 'w_west', type: 'wall', x: -16, z: 0, width: 1, depth: 19, height: 3.5, color: '#334155' },
+      { id: 'w_east', type: 'wall', x: 16, z: 0, width: 1, depth: 19, height: 3.5, color: '#334155' },
+
+      // Crates and containers for stealth cover
+      { id: 'crate1', type: 'crate', x: -10, z: 0, width: 2.2, depth: 2.2, height: 1.8, color: '#ca8a04', isCover: true },
+      { id: 'cont1', type: 'container', x: -3, z: -4, width: 4.5, depth: 2.2, height: 2.4, color: '#0284c7', isCover: true },
+      { id: 'cont2', type: 'container', x: -3, z: 4, width: 4.5, depth: 2.2, height: 2.4, color: '#dc2626', isCover: true },
+      { id: 'crate2', type: 'crate', x: 5, z: -1, width: 2, depth: 3.5, height: 1.8, color: '#ca8a04', isCover: true },
+      { id: 'pillar1', type: 'pillar', x: 9, z: -6, width: 1.5, depth: 1.5, height: 3.2, color: '#475569', isCover: true },
+      { id: 'pillar2', type: 'pillar', x: 9, z: 6, width: 1.5, depth: 1.5, height: 3.2, color: '#475569', isCover: true },
+    ],
+  },
+  {
+    id: 2,
+    name: 'Skyline Rooftops',
+    location: 'Metropolis Tower Heights',
+    theme: 'rooftop',
+    parTimeSec: 55,
+    playerSpawn: { x: -14, z: 0, angle: 0 },
+    exitPoint: { x: 14, z: 0, label: 'Helicopter', icon: 'helicopter' },
+    fogColor: 0x0b132b,
+    groundColor: 0x1c2541,
+    lightKeyColor: 0xc8d6e5,
+    lightFillColor: 0x5bc0be,
+    ambientIntensity: 0.6,
+    guards: [
+      {
+        id: 'g2_1',
+        type: 'basic',
+        spawn: { x: -8, z: -3 },
+        facingAngle: 0,
+        patrol: [
+          { x: -8, z: -3, waitTime: 1.5 },
+          { x: -3, z: -3, waitTime: 1.5 },
+        ],
+      },
+      {
+        id: 'g2_2',
+        type: 'elite',
+        spawn: { x: -1, z: 3 },
+        facingAngle: Math.PI / 2,
+        patrol: [
+          { x: -1, z: 3, waitTime: 1.2 },
+          { x: 4, z: 3, waitTime: 1.2 },
+        ],
+      },
+      {
+        id: 'g2_3',
+        type: 'basic',
+        spawn: { x: 5, z: -4 },
+        facingAngle: Math.PI,
+        patrol: [
+          { x: 5, z: -4, waitTime: 2.0 },
+          { x: 5, z: 2, waitTime: 2.0 },
+        ],
+      },
+      {
+        id: 'g2_4',
+        type: 'elite',
+        spawn: { x: 10, z: 0 },
+        facingAngle: Math.PI,
+        patrol: [
+          { x: 10, z: -3, waitTime: 1.5 },
+          { x: 10, z: 3, waitTime: 1.5 },
+        ],
+      },
+    ],
+    coins: [
+      { id: 'c2_1', x: -12, z: 4 },
+      { id: 'c2_2', x: -8, z: 5 },
+      { id: 'c2_3', x: -4, z: 0 },
+      { id: 'c2_4', x: 0, z: -4 },
+      { id: 'c2_5', x: 0, z: 5 },
+      { id: 'c2_6', x: 4, z: -5 },
+      { id: 'c2_7', x: 8, z: 0 },
+      { id: 'c2_8', x: 12, z: -4 },
+      { id: 'c2_9', x: 12, z: 4 },
+      { id: 'c2_10', x: 2, z: 0 },
+    ],
+    obstacles: [
+      // Rooftop Parapets & Fences
+      { id: 'rf_n', type: 'wall', x: 0, z: -9, width: 32, depth: 0.8, height: 1.4, color: '#334155' },
+      { id: 'rf_s', type: 'wall', x: 0, z: 9, width: 32, depth: 0.8, height: 1.4, color: '#334155' },
+      { id: 'rf_w', type: 'wall', x: -16, z: 0, width: 0.8, depth: 19, height: 1.4, color: '#334155' },
+      { id: 'rf_e', type: 'wall', x: 16, z: 0, width: 0.8, depth: 19, height: 1.4, color: '#334155' },
+
+      // AC Ventilation units & Water Tower
+      { id: 'ac1', type: 'crate', x: -9, z: 2, width: 3, depth: 2, height: 1.6, color: '#64748b', isCover: true },
+      { id: 'ac2', type: 'crate', x: -3, z: -3, width: 2.5, depth: 3.5, height: 1.8, color: '#64748b', isCover: true },
+      { id: 'billboard', type: 'wall', x: 1, z: 0, width: 4.5, depth: 0.8, height: 3.2, color: '#3b82f6', isCover: true },
+      { id: 'ac3', type: 'crate', x: 7, z: 3, width: 3, depth: 2.2, height: 1.6, color: '#64748b', isCover: true },
+      { id: 'water_tower', type: 'pillar', x: 7, z: -4, width: 2.6, depth: 2.6, height: 3.5, color: '#94a3b8', isCover: true },
+    ],
+  },
+  {
+    id: 3,
+    name: 'Secret Tech Vault',
+    location: 'Cyberdyne Research Lab',
+    theme: 'techvault',
+    parTimeSec: 65,
+    playerSpawn: { x: -14, z: 0, angle: 0 },
+    exitPoint: { x: 14, z: 0, label: 'Vault Escape Hatch', icon: 'shield' },
+    fogColor: 0x050814,
+    groundColor: 0x0f172a,
+    lightKeyColor: 0x38bdf8,
+    lightFillColor: 0x818cf8,
+    ambientIntensity: 0.7,
+    keycard: { x: 0, z: -5.5, gateId: 'gate_vault' },
+    terminal: { x: 0, z: 5.5, label: 'Override Terminal' },
+    guards: [
+      {
+        id: 'g3_1',
+        type: 'elite',
+        spawn: { x: -8, z: -3 },
+        facingAngle: Math.PI / 2,
+        patrol: [
+          { x: -8, z: -3, waitTime: 1.0 },
+          { x: -8, z: 3, waitTime: 1.0 },
+        ],
+      },
+      {
+        id: 'g3_2',
+        type: 'basic',
+        spawn: { x: -4, z: 4 },
+        facingAngle: 0,
+        patrol: [
+          { x: -4, z: 4, waitTime: 1.5 },
+          { x: 2, z: 4, waitTime: 1.5 },
+        ],
+      },
+      {
+        id: 'g3_3',
+        type: 'heavy',
+        spawn: { x: 5, z: 0 },
+        facingAngle: Math.PI,
+        patrol: [
+          { x: 5, z: -3, waitTime: 2.0 },
+          { x: 5, z: 3, waitTime: 2.0 },
+        ],
+      },
+      {
+        id: 'g3_4',
+        type: 'elite',
+        spawn: { x: 10, z: -3 },
+        facingAngle: Math.PI / 2,
+        patrol: [
+          { x: 10, z: -3, waitTime: 1.2 },
+          { x: 10, z: 3, waitTime: 1.2 },
+        ],
+      },
+    ],
+    coins: [
+      { id: 'c3_1', x: -11, z: 3 },
+      { id: 'c3_2', x: -7, z: 0 },
+      { id: 'c3_3', x: -4, z: -5 },
+      { id: 'c3_4', x: 0, z: 0 },
+      { id: 'c3_5', x: 3, z: -4 },
+      { id: 'c3_6', x: 3, z: 4 },
+      { id: 'c3_7', x: 8, z: -2 },
+      { id: 'c3_8', x: 8, z: 2 },
+      { id: 'c3_9', x: 12, z: -4 },
+      { id: 'c3_10', x: 12, z: 4 },
+    ],
+    obstacles: [
+      { id: 'v_n', type: 'wall', x: 0, z: -8.5, width: 32, depth: 1, height: 3.5, color: '#1e293b' },
+      { id: 'v_s', type: 'wall', x: 0, z: 8.5, width: 32, depth: 1, height: 3.5, color: '#1e293b' },
+      { id: 'v_w', type: 'wall', x: -16, z: 0, width: 1, depth: 18, height: 3.5, color: '#1e293b' },
+      { id: 'v_e', type: 'wall', x: 16, z: 0, width: 1, depth: 18, height: 3.5, color: '#1e293b' },
+
+      // Server racks & Central Laser Security Gate
+      { id: 'srv1', type: 'server', x: -9, z: 3, width: 3.5, depth: 1.5, height: 2.4, color: '#0f766e', isCover: true },
+      { id: 'srv2', type: 'server', x: -9, z: -3, width: 3.5, depth: 1.5, height: 2.4, color: '#0f766e', isCover: true },
+
+      // Center security partition with locked gate
+      { id: 'wall_mid_n', type: 'wall', x: 1, z: -5, width: 0.8, depth: 6, height: 3.2, color: '#334155' },
+      { id: 'gate_vault', type: 'gate', x: 1, z: 0, width: 0.8, depth: 3.5, height: 3.2, color: '#ef4444', requiresKeycard: true },
+      { id: 'wall_mid_s', type: 'wall', x: 1, z: 5, width: 0.8, depth: 6, height: 3.2, color: '#334155' },
+
+      { id: 'srv3', type: 'server', x: 6, z: 4, width: 3.2, depth: 1.6, height: 2.4, color: '#0f766e', isCover: true },
+      { id: 'srv4', type: 'server', x: 6, z: -4, width: 3.2, depth: 1.6, height: 2.4, color: '#0f766e', isCover: true },
+    ],
+  },
+  {
+    id: 4,
+    name: 'Desert Fortress',
+    location: 'Sultan Outpost Oasis',
+    theme: 'desert',
+    parTimeSec: 60,
+    playerSpawn: { x: -14, z: 0, angle: 0 },
+    exitPoint: { x: 14, z: 0, label: 'Desert Buggy', icon: 'compass' },
+    fogColor: 0xd4a373,
+    groundColor: 0xfaedcd,
+    lightKeyColor: 0xffedd5,
+    lightFillColor: 0xfde047,
+    ambientIntensity: 0.75,
+    guards: [
+      {
+        id: 'g4_1',
+        type: 'basic',
+        spawn: { x: -8, z: -4 },
+        facingAngle: 0,
+        patrol: [
+          { x: -8, z: -4, waitTime: 1.2 },
+          { x: -3, z: -4, waitTime: 1.2 },
+        ],
+      },
+      {
+        id: 'g4_2',
+        type: 'heavy',
+        spawn: { x: -2, z: 2 },
+        facingAngle: Math.PI / 2,
+        patrol: [
+          { x: -2, z: 2, waitTime: 2.0 },
+          { x: 3, z: 2, waitTime: 2.0 },
+        ],
+      },
+      {
+        id: 'g4_3',
+        type: 'heavy',
+        spawn: { x: 4, z: -3 },
+        facingAngle: Math.PI,
+        patrol: [
+          { x: 4, z: -3, waitTime: 2.0 },
+          { x: 4, z: 3, waitTime: 2.0 },
+        ],
+      },
+      {
+        id: 'g4_4',
+        type: 'elite',
+        spawn: { x: 10, z: 0 },
+        facingAngle: Math.PI,
+        patrol: [
+          { x: 10, z: -4, waitTime: 1.0 },
+          { x: 10, z: 4, waitTime: 1.0 },
+        ],
+      },
+    ],
+    coins: [
+      { id: 'c4_1', x: -11, z: 4 },
+      { id: 'c4_2', x: -11, z: -4 },
+      { id: 'c4_3', x: -6, z: 0 },
+      { id: 'c4_4', x: 0, z: -5 },
+      { id: 'c4_5', x: 0, z: 5 },
+      { id: 'c4_6', x: 6, z: -4 },
+      { id: 'c4_7', x: 6, z: 4 },
+      { id: 'c4_8', x: 8, z: 0 },
+      { id: 'c4_9', x: 12, z: -3 },
+      { id: 'c4_10', x: 12, z: 3 },
+    ],
+    obstacles: [
+      { id: 'd_n', type: 'wall', x: 0, z: -9, width: 32, depth: 1, height: 3, color: '#b45309' },
+      { id: 'd_s', type: 'wall', x: 0, z: 9, width: 32, depth: 1, height: 3, color: '#b45309' },
+      { id: 'd_w', type: 'wall', x: -16, z: 0, width: 1, depth: 19, height: 3, color: '#b45309' },
+      { id: 'd_e', type: 'wall', x: 16, z: 0, width: 1, depth: 19, height: 3, color: '#b45309' },
+
+      // Adobe huts, sandbags, and palm trees
+      { id: 'hut1', type: 'crate', x: -8, z: 2, width: 3.5, depth: 3.5, height: 2.6, color: '#d97706', isCover: true },
+      { id: 'sandbags1', type: 'crate', x: -3, z: -2, width: 3.2, depth: 1.2, height: 1.2, color: '#b45309', isCover: true },
+      { id: 'palm1', type: 'plant', x: 0, z: 0, width: 1.4, depth: 1.4, height: 3.8, color: '#15803d', isCover: true },
+      { id: 'hut2', type: 'crate', x: 4, z: 4, width: 4, depth: 3, height: 2.6, color: '#d97706', isCover: true },
+      { id: 'sandbags2', type: 'crate', x: 8, z: -3, width: 3.2, depth: 1.2, height: 1.2, color: '#b45309', isCover: true },
+    ],
+  },
+  {
+    id: 5,
+    name: 'Penthouse Heist',
+    location: 'Skyline Penthouse & Boss Don Vault',
+    theme: 'penthouse',
+    parTimeSec: 80,
+    playerSpawn: { x: -14, z: 0, angle: 0 },
+    exitPoint: { x: 14, z: 0, label: 'VIP Helipad', icon: 'helicopter' },
+    fogColor: 0x18181b,
+    groundColor: 0x27272a,
+    lightKeyColor: 0xffedd5,
+    lightFillColor: 0xe0e7ff,
+    ambientIntensity: 0.7,
+    guards: [
+      {
+        id: 'g5_1',
+        type: 'elite',
+        spawn: { x: -8, z: -3 },
+        facingAngle: 0,
+        patrol: [
+          { x: -8, z: -3, waitTime: 1.5 },
+          { x: -3, z: -3, waitTime: 1.5 },
+        ],
+      },
+      {
+        id: 'g5_2',
+        type: 'heavy',
+        spawn: { x: -4, z: 3 },
+        facingAngle: Math.PI / 2,
+        patrol: [
+          { x: -4, z: 3, waitTime: 2.0 },
+          { x: 1, z: 3, waitTime: 2.0 },
+        ],
+      },
+      {
+        id: 'g5_boss',
+        type: 'boss',
+        spawn: { x: 8, z: 0 },
+        facingAngle: Math.PI,
+        maxHp: 3,
+        patrol: [
+          { x: 8, z: -3, waitTime: 2.5 },
+          { x: 8, z: 3, waitTime: 2.5 },
+        ],
+      },
+      {
+        id: 'g5_3',
+        type: 'elite',
+        spawn: { x: 4, z: -4 },
+        facingAngle: Math.PI / 2,
+        patrol: [
+          { x: 4, z: -4, waitTime: 1.0 },
+          { x: 4, z: 4, waitTime: 1.0 },
+        ],
+      },
+    ],
+    coins: [
+      { id: 'c5_1', x: -11, z: 3 },
+      { id: 'c5_2', x: -11, z: -3 },
+      { id: 'c5_3', x: -6, z: 0 },
+      { id: 'c5_4', x: 0, z: -5 },
+      { id: 'c5_5', x: 0, z: 5 },
+      { id: 'c5_6', x: 3, z: 0 },
+      { id: 'c5_7', x: 7, z: -4 },
+      { id: 'c5_8', x: 7, z: 4 },
+      { id: 'c5_9', x: 11, z: -2 },
+      { id: 'c5_10', x: 11, z: 2 },
+    ],
+    obstacles: [
+      { id: 'p_n', type: 'wall', x: 0, z: -8.5, width: 32, depth: 1, height: 3.5, color: '#3f3f46' },
+      { id: 'p_s', type: 'wall', x: 0, z: 8.5, width: 32, depth: 1, height: 3.5, color: '#3f3f46' },
+      { id: 'p_w', type: 'wall', x: -16, z: 0, width: 1, depth: 18, height: 3.5, color: '#3f3f46' },
+      { id: 'p_e', type: 'wall', x: 16, z: 0, width: 1, depth: 18, height: 3.5, color: '#3f3f46' },
+
+      // Velvet couches, mahogany desk, golden pillars
+      { id: 'couch1', type: 'couch', x: -8, z: 2, width: 3.2, depth: 1.6, height: 1.2, color: '#991b1b', isCover: true },
+      { id: 'pillar_p1', type: 'pillar', x: -3, z: -4, width: 1.6, depth: 1.6, height: 3.4, color: '#ca8a04', isCover: true },
+      { id: 'pillar_p2', type: 'pillar', x: -3, z: 4, width: 1.6, depth: 1.6, height: 3.4, color: '#ca8a04', isCover: true },
+      { id: 'boss_desk', type: 'crate', x: 4, z: 0, width: 3.5, depth: 2, height: 1.4, color: '#78350f', isCover: true },
+      { id: 'gold_statue', type: 'pillar', x: 10, z: -4, width: 1.4, depth: 1.4, height: 3.2, color: '#eab308', isCover: true },
+      { id: 'gold_statue2', type: 'pillar', x: 10, z: 4, width: 1.4, depth: 1.4, height: 3.2, color: '#eab308', isCover: true },
+    ],
+  },
+];

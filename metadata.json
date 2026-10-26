@@ -1,0 +1,6 @@
+{
+  "name": "3D Hunter Assassin — Cartoon Stealth",
+  "description": "Stylized 3D cartoon stealth action game with cute assassins, animated guards, vision cones, stealth takedowns, and multiple levels.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
